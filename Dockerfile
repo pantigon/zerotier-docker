@@ -15,7 +15,7 @@ RUN apk add --update alpine-sdk linux-headers openssl-dev \
   && git -C src reset --quiet --hard ${ZT_COMMIT} \
   && cd /src \
   && git apply /patches/* \
-  && make -f make-linux.mk
+  && make -f make-linux.mk ZT_NONFREE=1
 
 FROM ${ALPINE_IMAGE}:${ALPINE_VERSION}
 
